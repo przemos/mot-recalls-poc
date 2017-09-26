@@ -1,0 +1,30 @@
+{
+  "name": "mot-recalls-poc",
+  "version": "1.0.0",
+  "description": "Proof of Concept of MOT Recalls Lambda",
+  "main": "index.js",
+  "scripts": {
+    "test": "AWS_REGION=eu-west-1 ./node_modules/.bin/jasmine-node spec",
+    "lint": "./node_modules/.bin/eslint index.js spec/",
+    "install-prod": "rm -Rf node_modules && npm install --only=production",
+    "create-zip": "rm -Rf dist && mkdir -p dist && zip -r dist/mot-recalls-${version:-latest}.zip .",
+    "build": "npm install && npm run lint && npm run test && npm run install-prod && npm run create-zip"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.123.0",
+    "bluebird": "^3.5.0",
+    "co": "^4.6.0",
+    "superagent": "^3.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.7.2",
+    "eslint-plugin-jasmine": "^2.8.4",
+    "jasmine-node": "^1.14.5",
+    "jscs": "^3.0.7",
+    "jslint": "^0.11.0",
+    "mock-require": "^2.0.2",
+    "serverless-kms-secrets": "^1.0.2"
+  }
+}
