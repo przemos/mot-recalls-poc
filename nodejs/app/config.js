@@ -6,7 +6,7 @@ const decryptSecret = Promise.promisify(cbKms.decrypt, {context : cbKms})
 // cache config
 let configCache = []
 
-const Param = Object.freeze({
+const param = Object.freeze({
     SMMT_API_KEY: { name : 'SMMT_API_KEY', secret: true },
     SMMT_API_URI : {name: 'SMMT_API_URI'},
     LOG_LEVEL: { name: 'LOG_LEVEL'}

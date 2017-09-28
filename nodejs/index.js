@@ -10,7 +10,7 @@ const handler = errorHandler(co.wrap(function *(event, context, callback) {
     console.time('all')
     const {vin, make} = event.queryStringParameters
     console.time('getParams')
-    const [smmtUri, smmtApiKey] = yield config.getValue(config.Param.SMMT_URI, config.Param.SMMT_API_KEY)
+    const [smmtUri, smmtApiKey] = yield config.getValue(config.param.SMMT_API_URI, config.param.SMMT_API_KEY)
     console.timeEnd('getParams')
     console.log(smmtUri, smmtApiKey)
     const smmtClient = smmtClientFactory(smmtUri, smmtApiKey)
